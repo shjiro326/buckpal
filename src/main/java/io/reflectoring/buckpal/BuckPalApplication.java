@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BuckPalApplication {
 
   public static void main(String[] args) {
-	String practiceBranch = "practice";
+	String practicePullRequest = "practicePullRequest";
     SpringApplication.run(BuckPalApplication.class, args);
   }
 
