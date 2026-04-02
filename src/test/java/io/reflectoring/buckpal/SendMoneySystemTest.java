@@ -1,23 +1,25 @@
 package io.reflectoring.buckpal;
 
+import static org.assertj.core.api.BDDAssertions.*;
+
+import java.net.http.HttpHeaders;
 import java.time.LocalDateTime;
 
-import io.reflectoring.buckpal.application.port.out.LoadAccountPort;
-import io.reflectoring.buckpal.application.domain.model.Account;
-import io.reflectoring.buckpal.application.domain.model.Account.AccountId;
-import io.reflectoring.buckpal.application.domain.model.Money;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.jdbc.Sql;
-import static org.assertj.core.api.BDDAssertions.*;
+
+import io.reflectoring.buckpal.application.domain.model.Account;
+import io.reflectoring.buckpal.application.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.application.domain.model.Money;
+import io.reflectoring.buckpal.application.port.out.LoadAccountPort;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class SendMoneySystemTest {
@@ -31,6 +33,8 @@ class SendMoneySystemTest {
 	@Test
 	@Sql("SendMoneySystemTest.sql")
 	void sendMoney() {
+
+		int b;
 
 		Money initialSourceBalance = sourceAccount().calculateBalance();
 		Money initialTargetBalance = targetAccount().calculateBalance();
