@@ -1,15 +1,18 @@
 package io.reflectoring.buckpal;
 
-import com.tngtech.archunit.core.importer.ClassFileImporter;
-import io.reflectoring.buckpal.archunit.HexagonalArchitecture;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
+
 import org.junit.jupiter.api.Test;
 
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
+import com.tngtech.archunit.core.importer.ClassFileImporter;
+
+import io.reflectoring.buckpal.archunit.HexagonalArchitecture;
 
 class DependencyRuleTests {
 
 	@Test
 	void validateRegistrationContextArchitecture() {
+		int b;
 		HexagonalArchitecture.basePackage("io.reflectoring.buckpal")
 
 				.withDomainLayer("application.domain")
