@@ -6,6 +6,11 @@ import lombok.NonNull;
 import lombok.Value;
 
 @Value
+/**
+ * monney class
+ * @author shinj
+ *
+ */
 public class Money {
 
 	public static Money ZERO = Money.of(0L);
