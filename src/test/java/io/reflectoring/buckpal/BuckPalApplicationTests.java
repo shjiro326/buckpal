@@ -11,7 +11,7 @@ class BuckPalApplicationTests {
 
 	@Test
 	void contextLoads() {
-		int bcd;
+		int abc;
 	}
 
 }
