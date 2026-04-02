@@ -1,14 +1,15 @@
 package io.reflectoring.buckpal.adapter.in.web;
 
-import io.reflectoring.buckpal.application.port.in.SendMoneyUseCase;
-import io.reflectoring.buckpal.application.port.in.SendMoneyCommand;
-import io.reflectoring.buckpal.common.WebAdapter;
-import io.reflectoring.buckpal.application.domain.model.Account.AccountId;
-import io.reflectoring.buckpal.application.domain.model.Money;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.reflectoring.buckpal.application.domain.model.Account.AccountId;
+import io.reflectoring.buckpal.application.domain.model.Money;
+import io.reflectoring.buckpal.application.port.in.SendMoneyCommand;
+import io.reflectoring.buckpal.application.port.in.SendMoneyUseCase;
+import io.reflectoring.buckpal.common.WebAdapter;
+import lombok.RequiredArgsConstructor;
 
 @WebAdapter
 @RestController
@@ -28,6 +29,7 @@ class SendMoneyController {
 				new AccountId(targetAccountId),
 				Money.of(amount));
 
+		int a;
 		sendMoneyUseCase.sendMoney(command);
 	}
 
